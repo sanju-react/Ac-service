@@ -1,0 +1,141 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+
+  /* Custom Clean Scrollbar */
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #F0F9FF;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #BAE6FD;
+    border-radius: 5px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #38BDF8;
+  }
+}
+
+@layer components {
+  /* Glassmorphism Styles (Performance Optimized) */
+  .glass-panel {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.9);
+  }
+
+  .glass-card {
+    background: #FFFFFF;
+    border: 1px solid rgba(224, 242, 254, 0.9);
+    box-shadow: 0 10px 30px -10px rgba(15, 23, 42, 0.05);
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  }
+
+  .glass-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 35px -15px rgba(37, 99, 235, 0.12), 0 0 0 1px rgba(56, 189, 248, 0.3);
+    border-color: rgba(56, 189, 248, 0.4);
+  }
+
+  .glass-pill {
+    background: rgba(240, 249, 255, 0.9);
+    backdrop-filter: blur(6px);
+    border: 1px solid rgba(186, 230, 253, 0.7);
+  }
+
+  /* Frost subtle gradient text */
+  .text-gradient-cool {
+    background: linear-gradient(135deg, #0284C7 0%, #2563EB 50%, #1D4ED8 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .text-gradient-ice {
+    background: linear-gradient(135deg, #0EA5E9 0%, #06B6D4 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  /* Glow effects */
+  .glow-blue {
+    box-shadow: 0 0 35px -5px rgba(56, 189, 248, 0.45);
+  }
+
+  .glow-cyan {
+    box-shadow: 0 0 35px -5px rgba(6, 182, 212, 0.4);
+  }
+
+  /* 3D perspective wrapper */
+  .perspective-1000 {
+    perspective: 1000px;
+  }
+
+  .preserve-3d {
+    transform-style: preserve-3d;
+  }
+}
+
+/* Atmospheric mist & airflow particles */
+@keyframes airflowFloat {
+  0% {
+    transform: translateY(0px) translateX(0px) scale(0.9);
+    opacity: 0;
+  }
+  20% {
+    opacity: 0.8;
+  }
+  80% {
+    opacity: 0.6;
+  }
+  100% {
+    transform: translateY(-80px) translateX(40px) scale(1.2);
+    opacity: 0;
+  }
+}
+
+.air-particle {
+  animation: airflowFloat 4s ease-in-out infinite;
+}
+
+/* Custom Range Slider */
+input[type=range].temp-slider {
+  -webkit-appearance: none;
+  appearance: none;
+  background: transparent;
+}
+
+input[type=range].temp-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 24px;
+  width: 24px;
+  border-radius: 50%;
+  background: #2563EB;
+  border: 3px solid #FFFFFF;
+  box-shadow: 0 0 10px rgba(37, 99, 235, 0.5);
+  cursor: pointer;
+  margin-top: -8px;
+  transition: transform 0.15s ease, background 0.15s ease;
+}
+
+input[type=range].temp-slider::-webkit-slider-thumb:hover {
+  transform: scale(1.15);
+  background: #0284C7;
+}
+
+input[type=range].temp-slider::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 8px;
+  cursor: pointer;
+  background: linear-gradient(90deg, #38BDF8 0%, #60A5FA 50%, #F59E0B 100%);
+  border-radius: 6px;
+}
